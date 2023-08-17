@@ -1,0 +1,40 @@
+version: "3.1"
+
+stories:
+
+- story: greeting stories
+  steps:
+  - intent: greet
+  - action: utter_iamabot
+  - action: utter_greet
+
+- story: scholarship_courses 2
+  steps:
+  - intent: courses_scholarship
+  - action: utter_scholarship_courses_response
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: about_scholarship 3
+  steps:
+  - intent: apply_scholarship
+  # - slot_Was_set:
+  #   - url: "http://mtu.edu.ng"
+  - action: utter_apply_scholarship
+
+
+
+# 
+
+# Obtain the application form: You can obtain the application form from the university's website or from designated banks or agents.
+
+# Fill the application form: You will need to provide accurate information about yourself, your educational background, and any other information required in the form.
+
+# Submit the application form: After completing the form, you will need to submit it along with any required supporting documents such as academic transcripts, birth certificate, and passport photograph.
+
+# Wait for the admission list: After the application deadline, the university will release an admission list of candidates who have been offered provisional admission into the university.
+
+# Accept the admission offer: If your name is on the admission list, you will need to accept the admission offer by paying the acceptance fee and fulfilling any other admission requirements.
+
+# It is important to note that the specific admission process and requirements may vary
+

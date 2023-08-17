@@ -1,0 +1,469 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - yo
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: endin/round_off
+  examples: |
+    - thanks
+    - tanks
+    - tnks
+    - oh, thank you
+    - I appreciate this
+    - thanks for your time
+    - thanks very much
+    - alright
+    - great
+    - amazing, thanks very much
+    - relieved
+
+- intent: endin/who_am_i
+  examples: |
+    - please who am i talking to?
+    - is this the school admistrate?
+    - am i talking to the school ?
+    - am I talking to a human?
+    - am i speaking to anyone at the admin?
+    - can i talk to someone at the admin?
+
+- intent: rebate
+  examples: |
+    - i'm a son of a pastor
+    - any scholarship for pastor's children ?
+    - what's the meaning of a rebate
+    - rebate
+    - tuition fee for a pastor's child
+    - regional overseer
+    - a zonal pastor
+
+- synonym: pastor
+  examples: |
+    - Pastor
+    - pastor
+    - overseer
+    - Regional overseer
+    - zonal overseer
+    - minister
+
+############################ ANYTHING REQUIREMENTS ########################
+- intent: chatreq/change_of
+  examples: |
+    - change of institution
+    - change of course
+
+- intent: chatreq/cut_off
+  examples: |
+    - jamb cut off
+    - cut off marks
+    - school cut off marks
+
+- intent: chatreq/requirements
+  examples: |
+    - cateria needed to be admitted
+    - requirements needed to get into the school
+
+- intent: chatreq/waec_requirements
+  examples: |
+    - What are the SSCE requirements for admission into computer science program? 
+    - What are the waec requirements for admission into mtu?
+    - NECO requirements for admission
+    - admission waec requirements
+    - requirements for SSCE
+
+- intent: chatreq/science_requirements
+  examples: |
+    - science list of courses
+    - science waec/ssce requirement courses
+
+- intent: chatreq/art_requirements
+  examples: |
+    - art waec/ssce requirement courses
+    - art list of courses
+
+- intent: chatreq/jamb_requirements
+  examples: |
+    - What are the jamb requirements for admission into computer science program? 
+    - What are the jamb requirements for admission into mtu? 
+    - jamb requirements for admission
+    - admission jamb requirements
+    - requirements for jamb
+
+
+############################### TUITION FEES #############################
+- intent: chattuition/parttime_fee
+  examples: |
+    - tuition fees for [part time](entry) studies?  
+    - what's the amount to study [part time](entry) in mtu
+
+- intent: chattuition/postgraduate_fee
+  examples: |
+    - tuition fees for [masters](entry) studies?  
+    - what's the amount to study [masters](entry) in mtu
+
+
+- intent: chattuition/cbas
+  examples: |
+    - tuition fees for computer science
+    - How much does it cost to study computer science?
+    - How much does it cost to study a science course?
+    - How much does it cost to study software engineering
+    - what's the amount to study physics in mtu
+    - what is the cost to study computer science?
+    - what is the cost to study science course?
+
+- intent: chattuition/chms
+  examples: |
+    - tuition fees for mass communication
+    - How much does it cost to study business admin?
+    - How much does it cost to study a art course?
+    - How much does it cost to study music
+    - what's the amount to study music in mtu
+    - what is the cost to study accounting ?
+    - what is the cost to study art course?
+
+- intent: chattuition/tuition_fee
+  examples: |
+    - How can I proceed to pay my acceptance fees as a fresh student
+    - fee per semester
+    - tuition fee for the school year
+    - what is the process to payment of acceptance and school fees
+    - waht about the tuition fee
+    - procedure for payment of acceptance fee and schoo fee for 2023/2024
+    - what is the procedure for registration and payment of acceptance fee $ tuition fees for the 2023/2024 academic session
+    - As an International Student, how do I go about registration and payment of acceptance fees and school  fees for 2019/2020 admission
+  
+
+####################### ANYTHING ADMISSION ################################
+- intent: chatadmin/change_of
+  examples: |
+    - change of institution
+    - change of course
+
+- intent: chatadmin/cut_off
+  examples: |
+    - jamb cut off
+    - cut off marks
+    - school cut off marks
+
+
+- intent: chatadmin/admission_letter
+  examples: |
+    - how can i get the school admission letter
+    - cut off marks
+    - school cut off marks
+
+- intent: chatadmin/courses
+  examples: |
+    - list of courses
+    - list of courses offered
+    - list of courses offered in [mtu](university:Mountain Top University)
+    - what are the courses offered in your [university](university:Mountain Top University)?
+    - what are the courses offered in [Mountain Top University](university)?
+    - list of courses offerred in the [school](university:Mountain Top University)
+    - courses offered
+    - courses offered in [mtu](university:Mountain Top University)
+    - courses you offer
+    - branches?
+    - courses available at [mtu](university:Mountain Top University)?
+    - branches available at [mtu](university:Mountain Top University)?
+    - what are the courses in [mtu](university:Mountain Top University)?
+    - can you tell me the courses available in [mtu](university:Mountain Top University)?
+    - can you tell me the branches available in [mtu](university:Mountain Top University)?
+    - is this course offered?
+    - is this course offered in [mtu](university:Mountain Top University)?
+
+- intent: chatadmin/admission
+  examples: |
+    - i'm interested in admission
+    - i want to get more info about admission
+    - i want to process my admission
+    - gimme details on admission
+
+- intent: chatadmin/admission_list
+  examples: |
+    - How can I view MTU admission list for the concluded registration
+    - how can i check if i'm admitted
+
+- intent: chatadmin/admission_process
+  examples: |
+    - where can i process my admision?
+    - where can i submit my document?
+    - How do I Apply for admission? 
+    - who will attend to me for the admission?
+    - how can i process my admission
+    - what documents should i bring
+    - what are the documents to bring
+    - list of documents for admission
+    - What is the procedure for ADMISSION and REGISTRATION? 
+
+- intent: chatadmin/admission_no
+  examples: |
+    - more info
+    - contact info
+    - who can i contact
+    - how to contact at [mtu](university)
+    - how to contact at [Mountain Top University](university)
+    - how to contact at [Mountain Top](university)
+    - how to contact in the [university](university)
+    - [mtu](university) telephone number
+    - [Mountain Top](university) telephone number
+    - [Mountain Top University](university) telephone number
+    - [university](university) telephone number
+    - [mtu](university) number
+    - What is your contact no
+    - Contact number?
+    - how to call you
+    - [mtu](university) phone no?
+    - [university](university) phone no?
+    - how can i contact you
+    - Can i get your phone number
+    - how can i call you
+    - phone number
+    - phone no
+    - call
+
+- intent: chatadmin/admission_date
+  examples: |
+    - please when is the admission starting?
+    - date of the admission
+    - when can i start processing my admission
+    - admission date
+    - when is the admission
+    - when can i apply for admission
+
+- intent: chatadmin/batch
+  examples: |
+    - please how many batch does the school takes?
+    - please how many batch does the school releases?
+
+- intent: chatadmin/part_time
+  examples: |
+    - please does the school offer [part time](entry) studies?
+    - anything about [part time](entry) in mtu?
+    - [part time](entry) studies?
+    - tuition fees for [part time](entry) studies?
+    - info about [part time](entry) studies in mtu
+    - how can i register as a [part time](entry) student in mtu
+    - how can i process my admission as [part time](entry) student
+
+- intent: chatadmin/postgraduate
+  examples: |
+    - please does the school offer [masters](entry) studies?
+    - anything about [masters](entry) in mtu?
+    - [masters](entry) studies?
+    - postgraduate studies?
+    - tuition fees for [masters](entry) studies?
+    - info about [masters](entry) studies in mtu
+    - info about postgraduate studies in mtu
+    - how can i register as a [masters](entry) student in mtu
+    - how can i process my admission as [masters](entry) student
+
+- intent: chatadmin/part_time2
+  examples: |
+    - how long is [part time](entry) studies in mtu?
+    - how many years is [part time](entry) in mtu?
+
+- intent: chatadmin/pastgraduate2
+  examples: |
+    - how long is [masters](entry) studies in mtu?
+    - how long is postgraduate studies in mtu?
+    - how many years is postgraduate in mtu?
+    - how many years is [masters](entry) in mtu?
+
+- intent: chatadmin/part_time3
+  examples: |
+    - [part time](entry) courses in mtu?
+    - list of [part time](entry) courses?
+    - [part time](entry) courses offered in mtu
+
+- intent: chatadmin/postgraduate3
+  examples: |
+    - postgraduate courses in mtu?
+    - [masters](entry) courses in mtu?
+    - list of postgraduate courses?
+    - list of [masters](entry) courses?
+    - masters courses offered iin mtu
+    - postgraduate courses offered in mtu
+
+
+- synonym: studies
+  examples: |
+    - Postgraduate
+    - postgraduate
+    - masters
+    - Masters
+
+
+####################### ANYTHING ADMISSION END ################################
+
+
+####################### ANYTHING D.K OLUKOYA'S FOUNDATION ################################
+
+- intent: scholarship
+  examples: |
+    - scholarship
+    - does the university offer scholarship
+    - can i be sponsored by the university
+    - tell me about the foundation programme
+
+- synonym: programme
+  examples: |
+    - scholarship
+    - Scholarship
+    - foundation
+    - Foundation
+    - sponsor
+    - Sponsor
+    - programme
+    - Programme
+
+- intent: apply_scholarship
+  examples: |
+    - How do I apply for scholarship to study in MTU
+    - how can i apply for the d.k olukoya's Scholarship
+
+- intent: courses_scholarship
+  examples: |
+    - courses with scholarship
+    - courses with d.k olukoya's foundation programme
+
+- intent: about_scholarship
+  examples: |
+    - dr. olukoya scholarship
+    - Tell me About Dr D.K Olukoya Foundation
+    - What is the Dr D.K. Olukoya Foundation all about? 
+    - I need a more detailed information about Dr D.K Olukoya Foundation? 
+
+####################### ANYTHING D.K OLUKOYA'S FOUNDATION END ################################
+
+
+
+###################### About MTU #################################
+- intent: aboutmtu/about_university
+  examples: |
+    - tell me about the university
+    - gimme more info about mtu
+    - Tell me About MTU
+
+
+- intent: about_university
+  examples: |
+    - tell me about the university
+    - gimme more info about mtu
+    - Tell me About MTU
+
+- intent: aboutmtu/history_university
+  examples: |
+    - why mountain top
+    - when was the university created
+    - What is the Vision of MTU
+    - What is the mission of MTU
+    - What are the strategic goals of MTU
+    - What are the core values of MTU
+
+###################### About MTU end #################################
+
+- intent: others
+  examples: |
+    - others
+    - fun
+    - urgent issue please
+
+- intent: complaint
+  examples: |
+    - complaint
+    - I'm having an issue
+    - i need help
+    - complain
+
+- synonym: complaint
+  examples: |
+    - complaint
+    - complain
+    - issue
+    - help
+  
+
+- intent: university_hours
+  examples: |
+    - what is [mtu](university) timing
+    - working days
+    - when are you guys open
+    - what are your hours
+    - hours of operation
+    - when can i visit [mtu](university)
+    - when can i visit [Mountain Top](university)
+    - when can i visit [Mountain Top University](university)
+    - when can i visit the [university](university)
+    - when is [mtu](university) open
+    - when is [Mountain Top University](university) open
+    - when is [Mountain Top](university) open
+    - when is [university](university) open
+    - do you open on saturday
+    - do [mtu](university) open on saturday
+    - do [Mountain Top University](university) open on saturday
+    - what is the [mtu](university) hours
+    - when should i come to [mtu](university)
+    - when should i come to the [university](university)
+    - when should i come to [Mountain Top University](university)
+    - when should i come
+    - when should i attend [mtu](university)
+    - time
+
+
+    
+
+# rasa run actions --cors "*" --debug
+# rasa run -m models --enable-api --cors "*" --debug
+# rasa run -m models --endpoints endpoints.yml
+# rasa run -m models --enable-api --cors "*" --endpoints endpoints.yml
+# environ\Scripts\activate
+# https://rasa.com/docs/rasa/domain#slots
+# You can now load the package via spacy.load('en_core_web_md')

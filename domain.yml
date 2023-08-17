@@ -1,0 +1,419 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - endin
+  - chatreq
+  - rebate
+  - chattuition
+  - university_hours
+  - chatadmin
+  - aboutmtu
+  - about_university
+  - scholarship
+  - others
+  - complaint
+  - apply_scholarship
+  - courses_scholarship
+  - about_scholarship
+
+entities:
+  - university
+  - programme
+  - complaint
+  - entry
+  # - open_link
+slots:
+  programme:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: programme
+  complaint:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: complaint
+  univerity:
+    type: text 
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: university
+  entry:
+    type: text 
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: entry
+  # url:
+  #   type: any 
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_entities
+  #       entity:  open_link
+
+
+
+responses:
+  utter_please_rephrase:
+  - text: I'm sorry, I didnt't quite understand that. Could you please rephrase ?
+  
+  utter_endin/who_am_i:
+  - text: "I'm an admission 🎓 response bot. Making your enquiries for admission easy"
+
+  utter_iamabot:
+  - text: "Hello 🙋‍♂️, Let me guide you on your admission to the school."
+
+  utter_greet:
+  - text: "You can Choose what you want to do 🙂"
+    buttons:
+    - title:  "admission 🎓"
+      payload: "gimme details on admission"
+    - title:  "info 🏯"
+      payload: "/about_university"
+    - title:  "Rebate 🌐"
+      payload: "/rebate"
+
+  utter_endin/round_off:
+  - text: "you are welcome? 🙂"
+  - text: "Just being cool? 😎"
+
+  utter_goodbye:
+  - text: "Bye 👋"
+
+###################### Foundation Scholarship #################################
+
+  utter_scholarship:
+  - text: "Yes, the university has Prof D.K. Olukoya foundation programme, where Prof D.K. Olukoya or set of people partake to sponsor different student in MTU "
+  
+  utter_about_scholarship:
+  - text: " I’m happy 😊 you are interested and want to be a partaker of this programme.\n\n\
+          \x20It is a foundation kept in place to Finance students through their Academic Session."
+
+  utter_for_scholarship:
+  - text: "what will you like to do"
+    buttons:
+    - title:  "apply "
+      payload: "/apply_scholarship"
+    - title:  "courses with scholarship"
+      payload: "/courses_scholarship"
+
+  utter_apply_scholarship:
+  - text: "Dr D.K. Olukoya Foundation is here to see you through your stay in MTU. Kindly follow this link to view the procedure you have to follow to be a beneficiary of the foundation "
+    buttons:
+    - title:  "apply here"
+      payload:  "/open_link{'url': '<link>'}"
+
+  utter_scholarship_courses_response:
+  - text: "Announcement will be made concerning this as the courses are not out yet for this academic year"
+
+  ###################### Foundation Scholarship end #################################
+
+######################## Complaint Form #######################
+
+  utter_others_response:
+  - text: "You can Choose what you want to do 🙂"
+    buttons:
+    - title:  "admission complaint"
+      payload: "/complaint "
+    - title:  "normal chat"
+      payload: "/about_university"
+
+  utter_ask_complaint:
+  - text: "To give your complaint, send an email 📩 to support@mtu.edu.ng stating the subject of the complaint and the body"
+
+
+#
+
+  utter_rebate_response:
+  - text: |-
+            The university offers a special amount of tuition fees to be paid by pastor's children
+            during your admission into the school, it will be confirmed by the school if really your parents
+            pastors in MFM and if they can or can't be part of the special tuition fees. send mail to <a href='mailto: support@mtu.edu.ng' target="_blank"> support@mtu.edu.ng </a> or <a href='mailto: admission@mtu.edu.ng' target="_blank"> admission@mtu.edu.ng </a>
+            to know more
+  
+  utter_university_hours_response:
+  - text: "You can visit the university from 9am-5pm Monday-Friday!"
+
+  utter_mtu_hours_response:
+  - text: |-
+            MTU does not open on Saturdays and Sundays but you can reach us here <a href='mailto: admission@mtu.edu.ng' target="_blank">admission@mtu.edu.ng</a>
+
+###################### Chattuition #################################
+
+  utter_chattuition/cbas:
+  -  text: |-
+            To view the tuition fee for science courses in mtu, kindly follow the <a href='https://mtu.edu.ng/mtu-news/20222023-academic-session-schedule-of-fees' target="_blank"> link </a>
+
+  utter_chatadmin/chms:
+  -  text: |-
+            To view the tuition fee for art courses in mtu, kindly follow the <a href='https://mtu.edu.ng/mtu-news/20222023-academic-session-schedule-of-fees' target="_blank"> link </a>
+
+  utter_chatadmin/parttime_fee:
+  -  text: |-
+            Tuition fee for part time studies in mtu, depends on the department or the course chosen to study. To view tuition fees for parttime,
+            send an <a href='mailto:admission@mtu.edu.ng' target="_blank"> email </a> as the tuition fee isn't provided yet 
+
+  utter_chatadmin/postgraduate_fee:
+  -  text: |-
+            Tuition fee for postgraduate studies in mtu, depends on the department or the course chosen to study. To know the tuition fee for the certain course
+            you want to study, contact these numbers <a href='tel:+2348034177749' target="_blank">08034177749</a> <a href='tel:+2348059952137' target="_blank">08059952137</a> 
+            <a href='tel:+2348179045201' target="_blank">08179045201</a> <a href='tel:+2348060969250' target="_blank">08060969250</a> or an email to <a href='mailto:registrar@mtu.edu.ng' target="_blank">registrar@mtu.edu.ng</a> 
+            <a href='mailto: pgadmission@mtu.edu.ng' target="_blank"> pgadmission@mtu.edu.ng </a>
+            
+            For more view into the postgraduate programs, visit <a href='https://postgraduate.mtu.edu.ng/' target="_blank">postgraduate website </a>
+
+  utter_chatadmin/tuition_fee:
+  - text: "Kindly choose which tuition fee you want"
+    buttons:
+    - title:  "Science(CBAS)"
+      payload: "tuition fees for computer science"
+    - title:  "Art(CHMS)"
+      payload: "tuition fees for mass communication"
+
+  ###################### Chattuition end #################################
+
+###################### Chatreq #################################
+
+  utter_chatreq/change_of:
+  -   text: |-
+            You can send an email to the school through <a href='mailto:support@mtu.edu.ng' target="_blank"> support@mtu.edu.ng </a> or visit the university's ICT for that
+
+  utter_chatreq/part_time:
+  -   text: |-
+            Yes, the school offer part time studies. To process as a part time student in mtu,
+            Kindly contact or send mail to s<a href='mailto:support@mtu.edu.ng' target="_blank"> support@mtu.edu.ng </a> or <a href='mailto:admission@mtu.edu.ng' target="_blank"> admission@mtu.edu.ng </a>
+
+  utter_chatreq/cut_off:
+  -   text: |-
+            To check the cut off marks, kindly follow the link
+
+  utter_chatreq/art_requirements:
+  -   text: |-
+            Click this link to view the requirements for art <a href='https://mtu.edu.ng/ttps://mtu.edu.ng/college-of-humanities-management-and-social-sciences/departments' target="_blank">courses </a>
+
+  utter_chatreq/science_requirements:
+  -   text: |-
+            Click this link to view the requirements for science <a href='https://mtu.edu.ng/ttps://mtu.edu.ng/college-of-basic-and-applied-sciences/departments' target="_blank">courses </a>
+
+  utter_chatreq/waec_requirements:
+  -   text: |-
+            The major courses that you must pass irrespective of the course study are
+            Mathematics, English. Students are encouraged to take high school courses related to their intended major, some courses not required for            
+            admission may be prerequisites for first-year courses. To view the requirements for each courses, kindly choose the options below
+      buttons:
+      - title:  "Science courses"
+        payload: "science list of courses"
+      - title:  "Art courses"
+        payload: "art list of courses "
+
+  utter_chatreq/jamb_requirements:
+  -   text: |-
+              UTME Required courses for admission
+              English
+              Mathematics
+              Two of: Biology, Chemistry, or Physics
+              An approved course or option
+
+              General Mathematics from SSCE exams may be used to satisfy the “Mathematics” course requirement.               
+              Further Mathematics from SSCE exams may be used to satisfy the “Calculus” requirement.               
+              Literature in English from SSCE exams may be used to satisfy the “English” course requirement.
+              To view the requirements for each courses, kindly choose the options below 
+
+      buttons:
+      - title:  "Science courses"
+        payload: "science list of courses"
+      - title:  "Art courses"
+        payload: "art list of courses "
+
+  utter_chatreq/requirements:
+  -   text: |-
+             Requirements here shows the courses needed to pass in both your jamb and waec/ssce. 
+             To view the requirements needed, kindly choose the options provided below 
+
+      buttons:
+      - title:  "WAEC/SSCE or GCE"
+        payload: "requirements for ssce(neco)"
+      - title:  "jamb"
+        payload: "requirements for jamb "
+
+  ###################### Chatreq end #################################
+
+###################### Chatadmin #################################
+
+  utter_chatadmin/admission_process:
+  -  text: |-
+            To process admission into Mountain Top University,
+            First, Select any programme that interest you <a href='https://mtu.edu.ng/admission/undergraduate/programs' target="_blank"> here </a>
+            Second, Check your admission requirements before going ahead with the programme <a href='https://mtu.edu.ng/admission/undergraduate/how-to-apply' target="_blank"> selected </a> 
+            
+
+            To process your application into the school
+            1. Visit application <a href='https://applications.mtu.edu.ng/' target="_blank"> portal </a> to start
+            2. Click view program and entry requirements
+
+            3.  Click start a fresh application button
+            4. Select the application type
+            5. Fill the form with your correct details 
+            6. Agree with the school Terms and Conditions
+
+            7. Note the "Reference Number". you can copy this for easy remembrance
+            8. Click on "Pay Online"            
+            9. Select your ATM card issuer (MasterCard, or Verve, or Visa) and click on “Continue”
+
+            10. You will see the details of the fee with the charges
+              Click on “Use Interswitch” button OR
+              Click on “Use Unified Payments” button
+              Then Click “Pay with Debit or Credit Card”            
+            11. Click “Continue” to proceed to the payment page.
+
+            12. Enter your ATM card issuer (MasterCard, or Verve, or Visa) details (PAN, CVV2, Name on the card, Expiration date), and click “OK”
+            13. Enter the OTP sent to your phone number by your bank to complete the transaction successfully.
+            14. After successful payment, log in to the Application Portal with your Reference Number and Surname in lower case as a password.
+            15. Click “Continue Application" to complete the application form
+
+            16. Submit the Application form
+            Generate the Payment Advice and Print the Application Form. Note that this process is for undergraduate. If you encounter any issue you can
+            send your mail to admission@mtu.edu.ng, stating what you encounter during your process
+            Don't forget to always check your email after you apply, as communicating with you will start through your email.             
+            Check your inbox for information about timelines, transcripts and next steps.
+
+  utter_chatadmin/part_time:
+  -  text: |-
+            Yes, the school offer part time studies. To process as a part time student in mtu,
+            Kindly contact or send mail to <a href='mailto:support@mtu.edu.ng' target="_blank">support@mtu.edu.ng </a> or <a href='mailto:admission@mtu.edu.ng' target="_blank">admission@mtu.edu.ng </a>
+
+  utter_chatadmin/postgraduate:
+  -  text: |-
+            The school offer postgraduate studies. To process as a postgraduate student in mtu,
+            Kindly complete the application form on the university <a href='https://applications.mtu.edu.ng/' target="_blank">portal</a>
+            Relevant information needed here includes
+            
+            1. Certificates of degrees and/or diplomas            
+            2. Academic transcripts            
+            3. Reference letters            
+            4. Statement of purpose            
+            5. Concept note on the proposed area of research.
+            All these are specified on the application form
+
+            Each candidate shall request and ensure that the institution(s) attended the process and forward official             
+            academic transcript(s) directly to the Registrar via email at <a href='mailto:pgadmission@mtu.edu.ng' target="_blank">pgadmission@mtu.edu.ng </a>. Only candidates whose
+            transcripts have been received shall be considered for admission
+
+            Note: If your are Nigerian, you will need to provide your National Youth Service Corps (NYSC) discharge, exemption, or exclusion certificate
+
+  utter_chatadmin/part_time2:
+  -  text: |-
+            Part time years of studies in mtu depends on the course you choose to study. The amount of years a part time takes,
+            is the amount of years a fulltime spends for a course plus extra 2years,
+            To know more about part time studies in MTU, kindly send mail to <a href='mailto:admission@mtu.edu.ng' target="_blank">admission@mtu.edu.ng </a>
+
+  utter_chatadmin/part_time3:
+  -  text: |-
+            To view list of part time courses in MTU, kindly send your mail to <a href='mailto:admission@mtu.edu.ng' target="_blank">admission@mtu.edu.ng </a>
+
+  utter_chatadmin/postgraduate2:
+  -  text: |-
+            Postgraduate studies in MTU is a year or 2 years depending on the course you choose to study. view the list of <a href='https://postgraduate.mtu.edu.ng/programmes' target="_blank"> postgraduate courses </a>
+
+  utter_chatadmin/postgraduate3:
+  -  text: |-
+            To view Postgraduate courses 📚 offerred, follow 💁🏽‍♂️ the link <a href='https://postgraduate.mtu.edu.ng/programmes' target="_blank">postgraduate courses </a>
+  
+  utter_chatadmin/courses:
+  -  text: |-
+            To view different courses 📚 offerred, follow 💁🏽‍♂️ the link <a href='https://mtu.edu.ng/admission/undergraduate/programs' target="_blank">Courses </a>
+
+  utter_chatadmin/batch:
+  - text: "The number of batch depends on the number of students that process their admission in MTU"
+
+  utter_chatadmin/admission_date:
+  - text: "Announcement will be made when the school start screening. As of old, the university admission is always open from August to November of every year. "
+
+  utter_chatadmin/admission_list:
+  -  text: |-
+            List of student that has been admitted by the school should be sent as a pdf to your email or kindly 💁🏽‍♂️ follow this link to view https://mtu.edu.ng/mountain-top-university-admission-list/
+
+  utter_chatadmin/admission_no:
+  -  text: |-
+            you can send an email to the school through <a href='mailto: admission@mtu.edu.ng' target="_blank">admission@mtu.edu.ng </a> and <a href='https://mtu.edu.ng/admission/undergraduate/contact' target="_blank">site </a> for undergraduate or <a href='mailto:pgadmission@mtu.edu.ng' target="_blank"> pgadmission@mtu.edu.ng </a> and <a href=' https://postgraduate.mtu.edu.ng/contact' target="_blank"> site </a> for postgraduate. 
+
+  utter_chatadmin/admission_letter:
+  -  text: |-
+            Kindly 💁🏽‍♂️ follow this link to download your admission letter <a href='https://applications.mtu.edu.ng/' target="_blank">applications </a>
+  
+  utter_chatadmin/admission:
+  - text: "Choose any preferred choice"
+    buttons:
+    - title:  "admission date 📅"
+      payload: "date of the admission"
+    - title:  "admission process 🎫"
+      payload: "How do I Apply for admission?"
+
+  ###################### Chatadmin end #################################
+
+######################### About University ########################
+  utter_aboutmtu/about_university:
+  - text: |- 
+            The proprietor of the Mountain Top University is the Mountain of Fire and Miracles Ministries (MFM), a Christian missionary organisation founded by Dr. Daniel Kolawole Olukoya.
+            
+            The vision for the establishment of the Ministry was received in August but it was not until July 1989 that the Ministry commenced. The commission started with 24 members and as at today, the church has millions of worshippers worldwide. MFM runs missionary activities in over 40 nations of the world cutting across Africa, Europe, America and Asia. As a Christian missionary organisation, the MFM is a full gospel ministry devoted to the revival of apostolic signs.
+            
+            The core vision of MFM is total liberty of men and women from all forms of oppressions and bondages through the teaching of biblical principles and aggressive prayer strategies for a victorious living. It is against this backdrop that the vision for the establishment of Mountain Top University was derived from the founding ministry.
+            
+            The promulgation of the Education Decree No. 9 of 1993, which repealed the Decree No. 19 of 1984 and stipulated new guidelines on the establishment of private universities was therefore a welcome development. Mountain Top University is one of the private Universities in Nigeria.
+
+
+  utter_aboutmtu/history_university:
+  - text: |-
+            The University is a confederation of Colleges and Departments. The Colleges are governed by their own statutes and regulations, 
+            
+            but are integral to the make-up of the Mountain Top University. There are two Colleges, which each form an administrative grouping of departments. 
+            
+            They are:
+              •	College of Basic and Applied Sciences
+              •	College of Humanities and Management Sciences
+            
+            There is a Council of each College – including representatives of its Departments. The Schools are represented on the General Board.
+            
+            MTU’s diverse community — comprising students, Colleges, staff, parents and more — work together on more than research and education. Outside of the classroom, student clubs, staff organizations and religious life groups are just some of the ways community comes together at the Institute.
+            
+            Ready to study at Mountain Top University? 
+            
+            <a href='https://postgraduate.mtu.edu.ng/programmes' target="_blank"> click here </a>https://postgraduate.mtu.edu.ng/programmes  for postgraduate studies
+
+            <a href='https://mtu.edu.ng/admission/undergraduate/programs' target="_blank"> click here </a> for undergraduate programmes
+
+
+
+
+
+actions:
+  - utter_greet
+  - utter_did_that_help
+  - affirm
+  - deny
+  - action_open_link
+  - about_university_response
+  - utter_goodbye
+  - utter_chatadmin/admission
+  - utter_chatreq/waec_requirements
+  - utter_chatreq/jamb_requirements
+  - utter_chatreq/requirements
+  - utter_endin/round_off
+  - action_default_fallback
+
+
+
+
+

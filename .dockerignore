@@ -1,0 +1,7 @@
+.rasa
+.vs
+.vscode
+.env
+models
+environ
+.md*

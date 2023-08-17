@@ -1,0 +1,46 @@
+version: '3'
+services:
+    rasa:
+      container_name: "rasa_server"
+      user: root
+      build: 
+        context:  .
+      volumes:
+      - "./:/app"
+      ports: 
+        - "5005:5005"
+      depends_on:
+        - postgres
+
+    action_server:
+      container_name: "action_server"
+      build: 
+        context: actions
+      volumes:
+        - ./actions:/app/actions
+        - ./data:/app/data
+      ports:
+        - 5055:5055
+
+    frontends:
+      container_name: "frontends"
+      build: 
+        context: frontends
+      ports:
+        - 80:80
+    postgres:
+      image: postgres:latest
+
+
+
+      # environment:
+      #   POSTGRESQL_USERNAME: "postgres"
+      #   POSTGRESQL_PASSWORD: "MEShe19682002."
+      #   POSTGRESQL_DATABASE: "universitybot"
+      #   POSTGRES_HOST_AUTH_METHOD: "trust"
+      # volumes:
+      #   - ./database/create_table.sql:/docker-entrypoint-initdb.d/create_table.sql
+      # ports:
+      #   - "5432:5432"
+      # networks:
+      #   - default

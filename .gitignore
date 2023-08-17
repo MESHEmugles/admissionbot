@@ -1,0 +1,9 @@
+.rasa
+.vs
+.vscode
+# credentials.yml
+.env
+# endpoints.yml
+models
+environ
+.md*

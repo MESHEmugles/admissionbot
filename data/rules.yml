@@ -1,0 +1,79 @@
+version: "3.1"
+
+rules:
+- rule: say endin intent
+  steps:
+    - intent: endin
+    - action: utter_endin
+
+- rule: say tution intent
+  steps:
+    - intent: chattuition
+    - action: utter_chattuition
+
+- rule: say requirements intent
+  steps:
+    - intent: chatreq
+    - action: utter_chatreq
+
+- rule: say rebate intent
+  steps:
+    - intent: rebate
+    - action: utter_rebate_response
+
+- rule: Implementation of the Two-Stage-Fallback
+  steps:
+    - intent: nlu_fallback
+    - action: action_two_stage_fallback
+    - active_loop: action_two_stage_fallback
+
+# - rule: open links intent
+#   steps:
+#     - intent: open_link
+#     - action: action_open_link
+
+
+- rule: say other intent
+  steps:
+    - intent: others
+    - action: utter_others_response
+
+- rule: say scholarship intent
+  steps:
+  - intent: scholarship
+  - action: utter_scholarship
+  - action: utter_for_scholarship
+
+- rule: say scholarship intent2
+  steps:
+  - intent: about_scholarship
+  - action: utter_about_scholarship
+  - action: utter_for_scholarship
+
+
+- rule: say university hours intent
+  steps:
+    - intent: university_hours
+    - action: utter_university_hours_response
+    - action: utter_mtu_hours_response
+
+- rule: say about the university intent
+  steps:
+    - intent: about_university
+    - action: about_university_response
+
+
+- rule: say complaint intent
+  steps:
+    - intent: complaint
+    - action: utter_ask_complaint 
+
+- rule: respond to chatadmin
+  steps:
+    - intent: chatadmin
+    - action: utter_chatadmin
+
+- rule: respond to aboutmtu
+  steps:
+    - intent: aboutmtu
+    - action: utter_aboutmtu
