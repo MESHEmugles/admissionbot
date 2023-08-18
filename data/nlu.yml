@@ -457,9 +457,6 @@ nlu:
     - when should i attend [mtu](university)
     - time
 
-
-    
-
 # rasa run actions --cors "*" --debug
 # rasa run -m models --enable-api --cors "*" --debug
 # rasa run -m models --endpoints endpoints.yml
