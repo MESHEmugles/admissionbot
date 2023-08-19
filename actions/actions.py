@@ -7,25 +7,22 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
-from typing import Any, Text, Dict, List
-
-
-from rasa_sdk.events import SlotSet
-from rasa_sdk import Action, Tracker
-# from rasa_core_sdk.events import EventType, UserUtteranceReverted
-from rasa_sdk.events import UserUtteranceReverted
-from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.types import DomainDict
 import webbrowser
 from sqlite3 import SQLITE_INSERT
+from typing import Any, Dict, List, Text
 
+from rasa_sdk import Action, Tracker
+# from rasa_core_sdk.events import EventType, UserUtteranceReverted
+from rasa_sdk.events import SlotSet, UserUtteranceReverted
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
 
 # from urllib.request import urlopen
 # from urllib.error import HTTPError
 # from urllib.error import URLError
 # from bs4 import BeautifulSoup
 # You can now load the package via spacy.load('en_core_web_md')
-    
+
 
 class AboutUniversity(Action):
 
@@ -38,14 +35,16 @@ class AboutUniversity(Action):
 
         dispatcher.utter_message(text="What would you like to choose?",
                                  buttons=[
-                                    {"title": "Scholarship", "payload": "/scholarship"},
-                                    {"title": "About MTU", "payload": "What is the Vision of MTU"}
+                                     {"title": "Scholarship",
+                                         "payload": "/scholarship"},
+                                     {"title": "About MTU",
+                                         "payload": "What is the Vision of MTU"}
                                  ]
-                                 
+
                                  )
 
         return []
-    
+
 
 class OpenLinkAction(Action):
     def name(self) -> Text:
@@ -60,25 +59,24 @@ class OpenLinkAction(Action):
 
         return []
 
+
 class FallBackMessage(Action):
     def name(self) -> Text:
         return "action_default_fallback"
 
-    def run(self, dispatcher: CollectingDispatcher, 
-            tracker:Tracker,
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text= "I'm sorry, I really can't help with that. Kindly email us here; support@mtu.edu.ng \n or continue by choosing these options",
-                                buttons=[
-                                        {"title": "admission", "payload": "gimme details on admission"},
-                                        {"title": "Scholarsips", "payload": "/scholarship"},
-                                        {"title": "Rebate Students", "paylaod": "/rebate"},
-                                ]
-        )
+        dispatcher.utter_message(text="I'm sorry, I really can't help with that. Kindly email us here; support@mtu.edu.ng \n or continue by choosing these options",
+                                 buttons=[
+                                     {"title": "admission",
+                                         "payload": "gimme details on admission"},
+                                     {"title": "Scholarsips",
+                                      "payload": "/scholarship"},
+                                     {"title": "Rebate Students",
+                                      "paylaod": "/rebate"},
+                                 ]
+                                 )
 
         return [UserUtteranceReverted]
-
-
-
-
-

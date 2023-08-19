@@ -1,10 +1,9 @@
-from typing import Text
 import sqlite3
+from typing import Text
 
 from rasa.core.tracker_store import TrackerStore
-from rasa.shared.core.trackers import DialogueStateTracker
 from rasa.shared.core.domain import Domain
-
+from rasa.shared.core.trackers import DialogueStateTracker
 
 
 class CustomTrackerStore(TrackerStore):
@@ -36,8 +35,10 @@ class CustomTrackerStore(TrackerStore):
     def save(self, tracker: DialogueStateTracker) -> None:
         # Extract relevant information from the tracker
         sender_id = tracker.sender_id
-        event_time = tracker.latest_message.timestamp.strftime("%Y-%m-%d %H:%M:%S")
-        intent = tracker.latest_message.intent.get("name") if tracker.latest_message.intent else None
+        event_time = tracker.latest_message.timestamp.strftime(
+            "%Y-%m-%d %H:%M:%S")
+        intent = tracker.latest_message.intent.get(
+            "name") if tracker.latest_message.intent else None
         entities = tracker.latest_message.entities
         slots = tracker.current_slot_values()
         action = tracker.latest_action_name
@@ -77,9 +78,3 @@ class CustomTrackerStore(TrackerStore):
             tracker.update(event)
 
         return tracker
-
-
-
-
-
-

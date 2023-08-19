@@ -2,6 +2,7 @@
 .vs
 .vscode
 # credentials.yml
+/venv
 .env
 # endpoints.yml
 models

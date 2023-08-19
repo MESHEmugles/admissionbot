@@ -394,10 +394,6 @@ responses:
 
             <a href='https://mtu.edu.ng/admission/undergraduate/programs' target="_blank"> click here </a> for undergraduate programmes
 
-
-
-
-
 actions:
   - utter_greet
   - utter_did_that_help
@@ -412,8 +408,3 @@ actions:
   - utter_chatreq/requirements
   - utter_endin/round_off
   - action_default_fallback
-
-
-
-
-
