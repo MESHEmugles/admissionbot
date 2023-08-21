@@ -1,8 +1,6 @@
-Certainly! Here's a sample README file for your Rasa-built chatbot project:
+# Rasa Admissionbot
 
-# Rasa Chatbot Project
-
-This project implements a chatbot using the Rasa framework, along with a frontend interface created using HTML, CSS, and JavaScript.
+This chatbot is implemented using the Rasa framework, along with a frontend interface created using HTML, CSS, and JavaScript.
 
 ## Project Structure
 
