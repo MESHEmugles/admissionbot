@@ -1,10 +1,10 @@
 .rasa
 .vs
 .vscode
-# credentials.yml
+credentials.yml
 /venv
 .env
-# endpoints.yml
+endpoints.yml
 models
 environ
 .md*
