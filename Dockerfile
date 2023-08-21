@@ -10,6 +10,4 @@ VOLUME /app/data
 VOLUME /app/models
 ENTRYPOINT [ "rasa" ]
 CMD [ "run","-m","/app/models","--enable-api","--cors","\"*\"","--endpoints", "endpoints.yml"]
-
-EXPOSE 5055
-USER 1001
+EXPOSE 5005
