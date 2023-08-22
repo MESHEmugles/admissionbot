@@ -2,7 +2,7 @@
 
 # Train the model
 chmod a+rwx models/
-sudo ./venv/source/activate
+environ/Scripts/activate
 rasa train
 
 # Build the rasa and action_server containers

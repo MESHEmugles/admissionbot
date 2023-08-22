@@ -51,6 +51,25 @@ services:
     depends_on:
       - rasa
 
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "MEShe19682002."
+      POSTGRESQL_DATABASE: "universitybot"
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - admission-bot
+
+
+volumes:
+  - db-data
+
 networks:
   admission-bot:
     name: admission-bot
