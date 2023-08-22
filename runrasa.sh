@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# create the frontend image
+# Train the model
+chmod a+rwx models/
+sudo ./venv/source/activate
+rasa train
 
-sudo docker build ./frontends -t frontend:v1
+# Build the rasa and action_server containers
+docker compose build rasa –-no-cache
 
-# Create the container and map to port 8000
-sudo docker run -d -t 80:80 frontend
-
-# create the rasa image
-sudo docker build . -t rasa-backend:v1
-
-# Create the container
-sudo docker run -d -p 5055:5055 rasa-backend:v1
+# Start the containers
+docker compose up -d --force-recreate
