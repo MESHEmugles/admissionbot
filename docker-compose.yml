@@ -1,19 +1,57 @@
-version: '3.0'
+version: '3.7'
 services:
+  app:
+    image: nginx
+    container_name: frontend-app
+    volumes:
+      - ./frontends:/usr/share/nginx/html
+    ports:
+      - '80:80'
+    networks:
+      - admission-bot
+
   rasa:
-    container_name: "rasa_server"
-    user: root
+    image: rasa/rasa:main-spacy-en
+    container_name: rasa
+    ports:
+      - 5005:5005
+    volumes:
+      - .:/app
+    command:
+      - run
+      - --debug
+      - --enable-api
+      - --cors
+      - "*"
+    networks:
+      - admission-bot
+    depends_on:
+      - app
+
+  rasa-action_server:
     build:
       context: .
-    volumes:
-      - "./:/app"
+      dockerfile: ./actions/Dockerfile
+    image: rasa-action_server
+    container_name: rasa-action-server
+    working_dir: /app
+    command:
+      - start
+      - --debug
+      - --actions
+      - actions
+      - --cors
+      - "*"
+    networks:
+      - admission-bot
     ports:
-      - "5005:5005"
-
-  action_server:
-    image: rasa/rasa-sdk:latest
-    restart: always
+      - 5055:5055
     volumes:
       - ./actions:/app/actions
-    ports:
-      - 5055
+    depends_on:
+      - rasa
+
+networks:
+  admission-bot:
+    name: admission-bot
+    driver: bridge
