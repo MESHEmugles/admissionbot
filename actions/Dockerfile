@@ -5,7 +5,7 @@ FROM rasa/rasa-sdk:3.3.0
 USER root
 
 # To install packages from PyPI
-RUN pip install --no-cache-dir requests
+RUN pip install --no-cache-dir requests rasa
 
 # Switch back to non-root to run code
 USER $user
