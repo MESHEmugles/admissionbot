@@ -27,6 +27,7 @@ services:
       - admission-bot
     depends_on:
       - app
+      - postgres
 
   rasa-action_server:
     build:
@@ -55,10 +56,10 @@ services:
     image: postgres
     container_name: postgres
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "MEShe19682002."
-      POSTGRESQL_DATABASE: "universitybot"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: rasa
     ports:
       - 5432:5432
     volumes:
@@ -66,9 +67,8 @@ services:
     networks:
       - admission-bot
 
-
 volumes:
-  - db-data
+  db-data: {}
 
 networks:
   admission-bot:
