@@ -9,6 +9,8 @@ services:
       - '80:80'
     networks:
       - admission-bot
+    depends_on:
+      - rasa
 
   rasa:
     image: rasa/rasa:main-spacy-en
