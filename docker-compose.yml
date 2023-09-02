@@ -32,7 +32,7 @@ services:
       - postgres
 
   rasa-action_server:
-    container_name: rasa-action-server
+    container_name: rasa-action_server
     build:
       context: .
       dockerfile: ./actions/Dockerfile
