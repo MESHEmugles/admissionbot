@@ -9,8 +9,6 @@ services:
       - '80:80'
     networks:
       - admission-bot
-    depends_on:
-      - rasa
 
   rasa:
     image: rasa/rasa:main-spacy-en
@@ -32,11 +30,11 @@ services:
       - postgres
 
   rasa-action_server:
-    container_name: rasa-action_server
     build:
       context: .
       dockerfile: ./actions/Dockerfile
     image: rasa-action_server
+    container_name: rasa-action_server
     working_dir: /app
     command:
       - start
