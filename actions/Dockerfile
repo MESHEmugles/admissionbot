@@ -1,5 +1,5 @@
 # Extend the official Rasa SDK image
-FROM rasa/rasa-sdk:latest
+FROM rasa/rasa-sdk:3.3.0
 
 # Change back to root user to install dependencies
 USER root
