@@ -9,6 +9,8 @@ services:
       - '80:80'
     networks:
       - admission-bot
+    depends_on:
+      - rasa
 
   rasa:
     image: rasa/rasa:main-spacy-en
@@ -27,13 +29,14 @@ services:
       - admission-bot
     depends_on:
       - app
+      - postgres
 
   rasa-action_server:
+    container_name: rasa-action_server
     build:
       context: .
       dockerfile: ./actions/Dockerfile
     image: rasa-action_server
-    container_name: rasa-action-server
     working_dir: /app
     command:
       - start
@@ -50,6 +53,24 @@ services:
       - ./actions:/app/actions
     depends_on:
       - rasa
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "MEShe19682002."
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: rasa
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - admission-bot
+
+volumes:
+  db-data: {}
 
 networks:
   admission-bot:
