@@ -16,5 +16,3 @@ docker exec -it [container_name or ID] bash
 
 # Working with postgres
 > psql -U postgres
-// List Databases
-=# \l
