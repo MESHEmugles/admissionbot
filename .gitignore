@@ -5,6 +5,5 @@ credentials.yml
 /venv
 .env
 endpoints.yml
-models
 environ
 .md*
