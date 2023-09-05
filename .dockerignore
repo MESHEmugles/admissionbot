@@ -3,6 +3,5 @@
 .vscode
 .env
 .env.sample
-models
 environ
 .md*
