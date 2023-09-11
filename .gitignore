@@ -4,6 +4,6 @@
 credentials.yml
 /venv
 .env
-endpoints.yml
+# endpoints.yml
 environ
 .md*
