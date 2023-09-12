@@ -51,6 +51,8 @@ services:
       - ./actions:/app/actions
     depends_on:
       - rasa
+    expose:
+      - 5055
 
   postgres:
     image: postgres
