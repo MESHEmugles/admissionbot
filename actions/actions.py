@@ -80,3 +80,29 @@ class FallBackMessage(Action):
                                  )
 
         return [UserUtteranceReverted]
+
+class SurveyFormAction(Action):
+    def name(self) -> Text:
+        return "action_survey_form"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # user = any()
+        # staff = any(tracker.latest_message.get("intent", {}).get("name") == "staff")
+
+        if tracker.latest_message.get("intent", {}).get("name") == "student":
+            link = "<a href='https://forms.gle/kskFHh6rLLGf8gfaA' target='_blank'> Survey Form </a>"
+
+            dispatcher.utter_message(text=f'Kindly click on the link: {link}')
+        elif tracker.latest_message.get("intent", {}).get("name") == "staff":
+
+            link = "<a href='https://forms.gle/CcBVucDCoBeMxqv36' target='_blank'> Survey Form </a>"
+
+            dispatcher.utter_message(text=f'Kindly click on the link: {link}')
+
+        return []
+
+
+
