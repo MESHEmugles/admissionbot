@@ -1,5 +1,7 @@
 # This file contains the different endpoints your bot can use.
 
+# action_endpoint:
+#  url: "http://localhost:5055/webhook"
 action_endpoint:
  url: "http://rasa-action_server:5055/webhook"
 

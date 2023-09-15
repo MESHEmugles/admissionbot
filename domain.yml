@@ -8,6 +8,11 @@ intents:
   - greet
   - goodbye
   - affirm
+  - survey_ask
+  - staff
+  - student
+  - survey_affirm
+  # - academic_calender
   - deny
   - endin
   - chatreq
@@ -72,7 +77,11 @@ responses:
   - text: "I'm an admission 🎓 response bot. Making your enquiries for admission easy"
 
   utter_iamabot:
-  - text: "Hello 🙋‍♂️, Let me guide you on your admission to the school."
+  - text: |-
+        Hello, Good day. Please, I will like to hear your feedback about this chatbot when you done with your queries.
+        Type or ask about the survey to the bot and it'll be provided. Thank You
+
+        Meanwhile, let me guide you through your admission processes to the university. 
 
   utter_greet:
   - text: "You can Choose what you want to do 🙂"
@@ -84,6 +93,14 @@ responses:
     - title:  "Rebate 🌐"
       payload: "/rebate"
 
+  utter_survey:
+  - text: "Please choose which one you are"
+    buttons:
+    - title:  "Staff"
+      payload: "/staff"
+    - title:  "Student"
+      payload: "/student"
+
   utter_endin/round_off:
   - text: "you are welcome? 🙂"
   - text: "Just being cool? 😎"
@@ -91,31 +108,32 @@ responses:
   utter_goodbye:
   - text: "Bye 👋"
 
+  # utter_calendar_response:
+  # - text: |-
+  #       Kindly follow this link to view the the <a href='https://mtu.edu.ng/mtu-news/academic-calendar-for-20232024-session' target="_blank">Calendar</a>
+
 ###################### Foundation Scholarship #################################
 
   utter_scholarship:
-  - text: "Yes, the university has Prof D.K. Olukoya foundation programme, where Prof D.K. Olukoya or set of people partake to sponsor different student in MTU "
+  - text: "Yes, the university has Prof D.K. Olukoya foundation programme, Kindly follow the link to read more about <a href='https://www.mtudkof.org.ng/about' target='_blank'>Prof D.K Olukoya MTU Foundation</a>"
   
   utter_about_scholarship:
   - text: " I’m happy 😊 you are interested and want to be a partaker of this programme.\n\n\
-          \x20It is a foundation kept in place to Finance students through their Academic Session."
+          \x20It is a foundation kept in place to Finance students through their Academic Session. Click the link to read about <a href='https://www.mtudkof.org.ng/about' target='_blank'>Prof D.K Olukoya MTU Foundation</a>"
 
   utter_for_scholarship:
   - text: "what will you like to do"
     buttons:
-    - title:  "apply "
+    - title:  "scholarship form "
       payload: "/apply_scholarship"
-    - title:  "courses with scholarship"
+    - title:  "Graduated student with scholarship"
       payload: "/courses_scholarship"
 
   utter_apply_scholarship:
-  - text: "Dr D.K. Olukoya Foundation is here to see you through your stay in MTU. Kindly follow this link to view the procedure you have to follow to be a beneficiary of the foundation "
-    buttons:
-    - title:  "apply here"
-      payload:  "/open_link{'url': '<link>'}"
+  - text: " Kindly click here to get the <a href='https://www.mtudkof.org.ng/docs/Adopt-a-Student-Form.pdf' target='_blank'>form</a> "
 
   utter_scholarship_courses_response:
-  - text: "Announcement will be made concerning this as the courses are not out yet for this academic year"
+  - text: "View list of students that has graduated from the university benefitting from scholarship <a href='https://www.mtudkof.org.ng/scholarshipscheme' target='_blank'>scholarship</a>"
 
   ###################### Foundation Scholarship end #################################
 
@@ -130,7 +148,7 @@ responses:
       payload: "/about_university"
 
   utter_ask_complaint:
-  - text: "To give your complaint, send an email 📩 to support@mtu.edu.ng stating the subject of the complaint and the body"
+  - text: "To give your complaint, send an email 📩 to <a href='mailto: support@mtu.edu.ng' target='_blank'>support@mtu.edu.ng</a> stating the subject of the complaint and the body"
 
 
 #
@@ -192,7 +210,7 @@ responses:
   utter_chatreq/part_time:
   -   text: |-
             Yes, the school offer part time studies. To process as a part time student in mtu,
-            Kindly contact or send mail to s<a href='mailto:support@mtu.edu.ng' target="_blank"> support@mtu.edu.ng </a> or <a href='mailto:admission@mtu.edu.ng' target="_blank"> admission@mtu.edu.ng </a>
+            Kindly contact or send mail to <a href='mailto:support@mtu.edu.ng' target="_blank"> support@mtu.edu.ng </a> or <a href='mailto:admission@mtu.edu.ng' target="_blank"> admission@mtu.edu.ng </a>
 
   utter_chatreq/cut_off:
   -   text: |-
@@ -265,28 +283,10 @@ responses:
             3.  Click start a fresh application button
             4. Select the application type
             5. Fill the form with your correct details 
-            6. Agree with the school Terms and Conditions
+            6. Agree with the school Terms and Conditions ...
 
-            7. Note the "Reference Number". you can copy this for easy remembrance
-            8. Click on "Pay Online"            
-            9. Select your ATM card issuer (MasterCard, or Verve, or Visa) and click on “Continue”
-
-            10. You will see the details of the fee with the charges
-              Click on “Use Interswitch” button OR
-              Click on “Use Unified Payments” button
-              Then Click “Pay with Debit or Credit Card”            
-            11. Click “Continue” to proceed to the payment page.
-
-            12. Enter your ATM card issuer (MasterCard, or Verve, or Visa) details (PAN, CVV2, Name on the card, Expiration date), and click “OK”
-            13. Enter the OTP sent to your phone number by your bank to complete the transaction successfully.
-            14. After successful payment, log in to the Application Portal with your Reference Number and Surname in lower case as a password.
-            15. Click “Continue Application" to complete the application form
-
-            16. Submit the Application form
-            Generate the Payment Advice and Print the Application Form. Note that this process is for undergraduate. If you encounter any issue you can
-            send your mail to admission@mtu.edu.ng, stating what you encounter during your process
-            Don't forget to always check your email after you apply, as communicating with you will start through your email.             
-            Check your inbox for information about timelines, transcripts and next steps.
+            To view the full steps, go to <a href='https://mtu.edu.ng/admission/undergraduate/how-to-apply' target="_blank"> How to apply </a>
+            If you encounter any issue you can send your mail to <a href='mailto:admission@mtu.edu.ng' target="_blank">admission@mtu.edu.ng </a>, stating what you encounter during your process
 
   utter_chatadmin/part_time:
   -  text: |-
@@ -408,3 +408,4 @@ actions:
   - utter_chatreq/requirements
   - utter_endin/round_off
   - action_default_fallback
+  - action_survey_form

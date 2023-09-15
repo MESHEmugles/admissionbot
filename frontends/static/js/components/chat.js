@@ -43,7 +43,7 @@ function setBotResponse(response) {
     hideBotTyping();
     if (response.length < 1) {
       // if there is no response from Rasa, send  fallback message to the user
-      const fallbackMsg = "Sorry, can't seem to get answer now. you can mail us through support.mtu.edu.ng and get a reply or \n\n\n try asking same question another time";
+      const fallbackMsg = "Sorry, can't seem to get answer now. you can mail us through <a href='mailto:support@mtu.edu.ng' target='_blank'>support@mtu.edu.ng</a> and get a reply or \n\n\n try asking same question another time";
 
       const BotResponse = `<img class="botAvatar" src="./static/img/download.png"/><p class="botMsg">${fallbackMsg}</p><div class="clearfix"></div>`;
 

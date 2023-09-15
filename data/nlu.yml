@@ -17,6 +17,10 @@ nlu:
     - goodevening
     - good afternoon
     - yo
+    - wahgwan
+    - sup
+    - wagwan
+    - what's good
 
 - intent: goodbye
   examples: |
@@ -39,6 +43,43 @@ nlu:
     - of course
     - that sounds good
     - correct
+
+- intent: survey_ask
+  examples: |
+    - can i get the survey now ?
+    - survey
+    - what about the survey ?
+    - can i see the survey?
+    - i want to do the survey
+
+- intent: survey_affirm
+  examples: |
+    - yes
+    - alright
+    - indeed
+    - of course
+    - that sounds good
+    - no problem
+    - no warm
+    - no quarms
+    - oya na
+
+- intent: staff
+  examples: |
+    - i am a staff
+    - staff
+    - i'm a staff
+    - staff form
+    - link to the staff form
+    - staff questionnaire
+
+- intent: student
+  examples: |
+    - student
+    - i'm a student
+    - student form
+    - link to the staff form
+    - staff questionnaire
 
 - intent: deny
   examples: |
@@ -72,6 +113,18 @@ nlu:
     - am I talking to a human?
     - am i speaking to anyone at the admin?
     - can i talk to someone at the admin?
+
+# - intent: academic_calender
+#   examples: |
+#     - calendar for session 2023/24 ?
+#     - how can i get the activities of the school ?
+#     - how many weeks is for a semester ?
+#     - how many months is for a semester ?
+#     - how can i know when Test 1 and 2 is starting
+#     - how many weeks is first semester holiday ?
+#     - how many weeks break is the christmas break ?
+#     - calendar
+#     - where can i get the calendar for this session ?
 
 - intent: rebate
   examples: |
