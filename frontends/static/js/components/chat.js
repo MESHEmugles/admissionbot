@@ -228,7 +228,7 @@ function setBotResponse(response) {
 async function send(message) {
   await new Promise((r) => setTimeout(r, 500));
   $.ajax({
-    url: "http://4.180.226.77:5005/webhooks/rest/webhook",
+    url: rasa_server_url,
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({ message, sender: sender_id }),
