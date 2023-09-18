@@ -1,7 +1,6 @@
 .rasa
 .vs
 .vscode
-credentials.yml
 /venv
 .env
 # endpoints.yml
