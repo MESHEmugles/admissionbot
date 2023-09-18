@@ -1,8 +1,17 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
 .rasa
 .vs
 .vscode
+
+credentials.yml
 /venv
 .env
-# endpoints.yml
+endpoints.yml
 environ
 .md*
+models
+
+out.log
