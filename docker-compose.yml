@@ -11,20 +11,17 @@ services:
       - admission-bot
 
   rasa:
-    image: rasa/rasa:main-spacy-en
-    container_name: rasa
-    ports:
-      - 5005:5005
+    container_name: "rasa"
+    user: root
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     volumes:
-      - .:/app
-    command:
-      - run
-      - --debug
-      - --enable-api
-      - --cors
-      - "*"
+      - ./:/app
     networks:
       - admission-bot
+    ports:
+      - 5005:5005
     depends_on:
       - app
       - postgres
@@ -43,12 +40,13 @@ services:
       - actions
       - --cors
       - "*"
+    volumes:
+      - ./actions:/app/actions
+      - ./data:/app/data
     networks:
       - admission-bot
     ports:
       - 5055:5055
-    volumes:
-      - ./actions:/app/actions
     depends_on:
       - rasa
     expose:
